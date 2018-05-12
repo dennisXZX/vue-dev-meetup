@@ -1,35 +1,49 @@
 <template>
   <v-app>
-    <!-- navigation drawer -->
+    <!-- navigation drawer which only shows in small screen -->
     <v-navigation-drawer absolute temporary v-model="sideNav">
       <v-list>
-        <v-list-tile>
+        <v-list-tile
+          v-for="item in menuItems"
+          :key="item.title"
+          router
+          :to="item.link">
           <v-list-tile-action>
-            <v-icon>supervisor_account</v-icon>
+            <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
-          <v-list-tile-content>View Meetups</v-list-tile-content>
+          <v-list-tile-content>{{ item.title }}</v-list-tile-content>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
 
-    <!-- toolbar -->
+    <!-- navbar -->
     <v-toolbar dark class="purple darken-1">
+      <!-- hamburger menu icon, which toggles the drawer menu -->
       <v-toolbar-side-icon
         @click.stop="sideNav = !sideNav"
         class="hidden-sm-and-up"
       ></v-toolbar-side-icon>
-      <v-toolbar-title>DevMeetup</v-toolbar-title>
+      <!-- site logo -->
+      <v-toolbar-title>
+        <router-link to="/" tag="span" style="cursor: pointer">DevMeetup</router-link>
+      </v-toolbar-title>
+      <!-- fill space between logo and right menu -->
       <v-spacer></v-spacer>
+      <!-- right side menu -->
       <v-toolbar-items class="hidden-xs-only">
-        <v-btn flat>
-          <v-icon left>supervisor_account</v-icon>
-          View Meetups
+        <v-btn flat
+               v-for="item in menuItems"
+               :key="item.title"
+               router
+               :to="item.link">
+          <v-icon left>{{ item.icon }}</v-icon>
+          {{ item.title }}
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
     <main>
-      <h1>Hello Vue</h1>
+      <router-view></router-view>
     </main>
 
   </v-app>
@@ -39,7 +53,14 @@
   export default {
     data () {
       return {
-        sideNav: false
+        sideNav: false,
+        menuItems: [
+          { icon: 'supervisor_account', title: 'View Meetups', link: '/meetups' },
+          { icon: 'room', title: 'Organize Meetup', link: '/meetup/new' },
+          { icon: 'person', title: 'Profile', link: '/profile' },
+          { icon: 'face', title: 'Sign up', link: '/signup' },
+          { icon: 'lock_open', title: 'Sign in', link: '/signin' }
+        ]
       }
     },
     name: 'App'
