@@ -17,7 +17,7 @@
     </v-navigation-drawer>
 
     <!-- navbar -->
-    <v-toolbar dark class="purple darken-1">
+    <v-toolbar dark class="primary">
       <!-- hamburger menu icon, which toggles the drawer menu -->
       <v-toolbar-side-icon
         @click.stop="sideNav = !sideNav"
