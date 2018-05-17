@@ -37,20 +37,9 @@
 
 <script>
   export default {
-    data () {
-      return {
-        meetups: [
-          {
-            id: '0',
-            title: 'meetup in Brisbane 1',
-            imageUrl: 'https://i2.wp.com/wearetravelgirls.com/wp-content/uploads/2016/07/surfers-paradise-brisbane-1.jpg?resize=1080%2C718&ssl=1'
-          },
-          {
-            id: '1',
-            title: 'meetup in Brisbane 2',
-            imageUrl: 'https://www.australia.com/content/australia/en_ca/places/brisbane-and-surrounds/guide-to-brisbane/jcr:content/image.adapt.1200.HIGH.jpg'
-          }
-        ]
+    computed: {
+      meetups () {
+        return this.$store.getters.featuredMeetups
       }
     },
     methods: {
