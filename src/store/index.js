@@ -25,14 +25,17 @@ export const store = new Vuex.Store({
     }
   },
   getters: {
+    // return a sorted meetup list
     loadedMeetups (state) {
       return state.loadedMeetups.sort((meetupA, meetupB) => {
         return meetupA.date > meetupB.date
       })
     },
+    // return the first 5 meetups from the list
     featuredMeetups (state, getters) {
       return getters.loadedMeetups.slice(0, 5)
     },
+    // load a specific meetup based on the id
     loadedMeetup (state) {
       return (meetupId) => {
         return state.loadedMeetups.find((meetup) => {
@@ -42,7 +45,23 @@ export const store = new Vuex.Store({
     }
   },
   mutations: {
+    createMeetup (state, payload) {
+      state.loadedMeetups.push(payload)
+    }
   },
   actions: {
+    createMeetup ({ commit }, payload) {
+      const meetup = {
+        id: 'test',
+        title: payload.title,
+        location: payload.location,
+        imageUrl: payload.imageUrl,
+        description: payload.description,
+        date: payload.date
+      }
+
+      // store the meetup in firebase
+      commit('createMeetup', meetup)
+    }
   }
 })

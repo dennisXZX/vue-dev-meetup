@@ -26,7 +26,7 @@ export default new Router({
     {
       path: '/meetups/:id',
       name: 'Meetup',
-      props: true,
+      props: true, // pass the props to component
       component: Meetup
     },
     {

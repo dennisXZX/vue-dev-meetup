@@ -26,6 +26,7 @@
 
 <script>
   export default {
+    // the 'id' prop is passed via URL by Vue router (router/index.js)
     props: ['id'],
     computed: {
       meetup () {
