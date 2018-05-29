@@ -4,10 +4,13 @@ import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import { store } from './store'
+import DateFilter from './filters/date'
 
+// use Vuetify plugin
 Vue.use(Vuetify)
 
-Vue.config.productionTip = false
+// register the filter
+Vue.filter('date', DateFilter)
 
 /* eslint-disable no-new */
 new Vue({

@@ -9,7 +9,7 @@ export const store = new Vuex.Store({
       {
         id: 'meetup0',
         title: 'meetup in Brisbane 1',
-        date: '2017-07-17',
+        date: new Date(),
         location: 'New York',
         description: 'This is a good meetup!',
         imageUrl: 'https://i2.wp.com/wearetravelgirls.com/wp-content/uploads/2016/07/surfers-paradise-brisbane-1.jpg?resize=1080%2C718&ssl=1'
@@ -17,7 +17,7 @@ export const store = new Vuex.Store({
       {
         id: 'meetup1',
         title: 'meetup in Brisbane 2',
-        date: '2017-09-17',
+        date: new Date(),
         location: 'Brisbane',
         description: 'This is a good meetup!',
         imageUrl: 'https://www.australia.com/content/australia/en_ca/places/brisbane-and-surrounds/guide-to-brisbane/jcr:content/image.adapt.1200.HIGH.jpg'
