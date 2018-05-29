@@ -2,12 +2,15 @@
   <v-container>
     <!-- action buttons -->
     <v-layout row wrap class="mb-3">
+      <!-- go to meetup list -->
       <v-flex xs12 sm6 class="text-xs-center text-sm-right">
         <v-btn large router to="/meetups" class="primary">Explore Meetups</v-btn>
       </v-flex>
+      <!-- create a new meetup -->
       <v-flex xs12 sm6 class="text-xs-center text-sm-left">
         <v-btn large router to="/meetups/new" class="primary">Organize Meetups</v-btn>
       </v-flex>
+
     </v-layout>
 
     <!-- carousel -->

@@ -8,6 +8,8 @@
         <v-card class="info">
           <v-container fluid>
             <v-layout row>
+
+              <!-- image thumbnail -->
               <v-flex xs5 sm4 md3>
                 <v-card-media
                   :src="meetup.imageUrl"
@@ -15,6 +17,7 @@
                 ></v-card-media>
               </v-flex>
 
+              <!-- meetup info -->
               <v-flex xs7 sm8 md9>
                 <v-card-title primary-title>
                   <div>
@@ -25,9 +28,11 @@
                 <v-card-actions>
                   <v-btn flat :to="'/meetups/' + meetup.id">
                     <v-icon left light>arrow_forward</v-icon>
-                    View Meetup</v-btn>
+                    View Meetup
+                  </v-btn>
                 </v-card-actions>
               </v-flex>
+
             </v-layout>
           </v-container>
         </v-card>

@@ -16,19 +16,23 @@
       </v-list>
     </v-navigation-drawer>
 
-    <!-- navbar -->
+    <!-- top navbar -->
     <v-toolbar dark class="primary">
+
       <!-- hamburger menu icon, which toggles the drawer menu -->
       <v-toolbar-side-icon
         @click.stop="sideNav = !sideNav"
         class="hidden-sm-and-up"
       ></v-toolbar-side-icon>
+
       <!-- site logo -->
       <v-toolbar-title>
         <router-link to="/" tag="span" style="cursor: pointer">DevMeetup</router-link>
       </v-toolbar-title>
+
       <!-- fill space between logo and right menu -->
       <v-spacer></v-spacer>
+
       <!-- right side menu -->
       <v-toolbar-items class="hidden-xs-only">
         <v-btn flat
@@ -40,8 +44,10 @@
           {{ item.title }}
         </v-btn>
       </v-toolbar-items>
+
     </v-toolbar>
 
+    <!-- partial view handled by Vue router -->
     <main>
       <router-view></router-view>
     </main>
@@ -62,7 +68,6 @@
           { icon: 'lock_open', title: 'Sign in', link: '/signin' }
         ]
       }
-    },
-    name: 'App'
+    }
   }
 </script>

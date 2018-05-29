@@ -7,20 +7,24 @@ export const store = new Vuex.Store({
   state: {
     loadedMeetups: [
       {
-        id: '0',
+        id: 'meetup0',
         title: 'meetup in Brisbane 1',
         date: '2017-07-17',
+        location: 'New York',
+        description: 'This is a good meetup!',
         imageUrl: 'https://i2.wp.com/wearetravelgirls.com/wp-content/uploads/2016/07/surfers-paradise-brisbane-1.jpg?resize=1080%2C718&ssl=1'
       },
       {
-        id: '1',
+        id: 'meetup1',
         title: 'meetup in Brisbane 2',
         date: '2017-09-17',
+        location: 'Brisbane',
+        description: 'This is a good meetup!',
         imageUrl: 'https://www.australia.com/content/australia/en_ca/places/brisbane-and-surrounds/guide-to-brisbane/jcr:content/image.adapt.1200.HIGH.jpg'
       }
     ],
     user: {
-      id: '0',
+      id: 'user0',
       registeredMeetups: ['meetup0']
     }
   },
@@ -45,19 +49,19 @@ export const store = new Vuex.Store({
     }
   },
   mutations: {
-    createMeetup (state, payload) {
-      state.loadedMeetups.push(payload)
+    createMeetup (state, meetupObj) {
+      state.loadedMeetups.push(meetupObj)
     }
   },
   actions: {
-    createMeetup ({ commit }, payload) {
+    createMeetup ({ commit }, meetupData) {
       const meetup = {
         id: 'test',
-        title: payload.title,
-        location: payload.location,
-        imageUrl: payload.imageUrl,
-        description: payload.description,
-        date: payload.date
+        title: meetupData.title,
+        location: meetupData.location,
+        imageUrl: meetupData.imageUrl,
+        description: meetupData.description,
+        date: meetupData.date
       }
 
       // store the meetup in firebase
